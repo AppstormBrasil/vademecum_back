@@ -1,0 +1,24 @@
+RewriteEngine On
+RewriteBase /vademecum_back
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI}\.php -f [NC]
+RewriteRule ^(.+?)/?$ $1.php [L]
+
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
+Options -Indexes 
+
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+
+<IfModule mod_headers.c>
+  Header set Access-Control-Allow-Origin *
+</IfModule>
+
+
+
+
