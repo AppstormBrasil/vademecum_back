@@ -24,7 +24,7 @@ if($checkfirst_['valid'] == 0){
     $user_type = $checkfirst_['user_type']; 
 }
 
-$db->query('SELECT id_,name,email,password, createdAt, updatedAt, status, user_type FROM user'); 
+$db->query('SELECT id_,name,email, createdAt, updatedAt, status, user_type FROM user'); 
 
 $result = $db->resultset(); 
 
@@ -35,7 +35,6 @@ if($result){
 	 	 	 'id_' => $row['id_'],
 	 	 	 'name' => $row['name'],
 	 	 	 'email' => $row['email'],
-	 	 	 'password' => $row['password'],
 	 	 	 'createdAt' => $row['createdAt'],
 	 	 	 'updatedAt' => $row['updatedAt'],
 	 	 	 'status' => $row['status'],

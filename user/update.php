@@ -52,20 +52,11 @@ if($checkfirst_['valid'] == 0){
    exit(0);
 } 
 
- if(isset($_POST['password'])){
-    $password = $_POST['password'];
-} else {
-   $arr['status'] = 'ERROR';
-   $arr['status_txt'] = 'Erro! password não fornecido!';
-    echo json_encode($arr); 
-   exit(0);
-} 
 
-$db->query('UPDATE user SET name = :name,email = :email,password = :password, updatedAt = :updatedAt WHERE id_= :id_ '); 
+$db->query('UPDATE user SET name = :name,email = :email,updatedAt = :updatedAt WHERE id_= :id_ '); 
 $db->bind(':id_', $id_); 
 $db->bind(':name', $name); 
 $db->bind(':email', $email); 
-$db->bind(':password', $password); 
 $db->bind(':updatedAt', $currentDate); 
 if($db->execute()){ 
 	$arr['status'] = 'SUCCESS';

@@ -33,7 +33,7 @@ if($checkfirst_['valid'] == 0){
    exit(0);
 } 
 
-$db->query('SELECT id_,name,email,password FROM user WHERE id_ = :id  '); 
+$db->query('SELECT id_,name,email FROM user WHERE id_ = :id  '); 
 $db->bind(':id' , $id_ ); 
 
 $result = $db->resultset(); 
@@ -45,7 +45,6 @@ if($result){
 	 	 	 'id_' => $row['id_'],
 	 	 	 'name' => $row['name'],
 	 	 	 'email' => $row['email'],
-	 	 	 'password' => $row['password'],
 	 	 ); 
  	 	 $i++;
 	 } 

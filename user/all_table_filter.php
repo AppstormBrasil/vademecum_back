@@ -33,7 +33,7 @@ $array_name = [];
     $array_password = [];
     		
 
-$db->query("SELECT name, email, password  FROM user");
+$db->query("SELECT name, email  FROM user");
 
 
 $db->execute();
@@ -42,8 +42,7 @@ if ($result) {
 	foreach ($result as $row) {
         $name = $row["name"];
         $email = $row["email"];
-        $password = $row["password"];
-          
+      
     
         if(!(in_array($row["name"], $array_name))){
             array_push($array_name, $row["name"]);
@@ -53,18 +52,12 @@ if ($result) {
             array_push($array_email, $row["email"]);
         }
                 
-        if(!(in_array($row["password"], $array_password))){
-            array_push($array_password, $row["password"]);
-        }
-                
 		$arr["data"][] = array(
             
         "name" => $row["name"],
         
         "email" => $row["email"],
-        
-        "password" => $row["password"],
-        
+       
 		);
 		$i++;
 	}
@@ -76,7 +69,6 @@ if($i > 0){
 
     $arr["array_name"] = $array_name;
         $arr["array_email"] = $array_email;
-        $arr["array_password"] = $array_password;
         
 	$arr["status"] = "SUCCESS";
 	$arr["total"] = $i;
