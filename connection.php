@@ -8,7 +8,7 @@ class db{
 private $host = 'localhost';  
 private $user = 'root';  
 private $pass = '';  
-private $dbname = 'vadecum';
+private $dbname = 'vademecum';
 private $port = '3306'; 
 
 private $dbh;  

@@ -12,7 +12,7 @@ include('connection.php');
 $current_date = date('Y-m-d');
 $current_date_time = date('Y-m-d  H:i:s');
 
-define("prod_path", "http://localhost:8012/vadecum_back/");
+define("prod_path", "http://localhost:8012/vademecum_back/");
 
 //build the headers
 $headers = ['name' => 'RS256', 'typ' => 'JWT'];
